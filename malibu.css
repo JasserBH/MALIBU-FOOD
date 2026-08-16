@@ -591,7 +591,7 @@
   #reclamation{
     background:
       linear-gradient(180deg, rgba(16,13,11,.45) 0%, rgba(16,13,11,.62) 55%, var(--ink) 97%),
-      url('img/malibu.png') center 38%/cover no-repeat;
+      url('img/sdwch.png') center 38%/cover no-repeat;
   }
 
   .receipt{
