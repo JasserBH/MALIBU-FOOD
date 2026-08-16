@@ -344,11 +344,13 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".horizontal-carousel").forEach(function (carousel) {
 
     const cards = Array.from(carousel.children);
+
     if (!cards.length) return;
+
 
     /* =========================
        SIDE PADDING
-       Allows first/last card
+       Allows first/last cards
        to reach the center
     ========================= */
 
@@ -361,17 +363,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const carouselWidth = carousel.clientWidth;
 
-      const firstWidth = first.getBoundingClientRect().width;
-      const lastWidth = last.getBoundingClientRect().width;
+      const firstWidth =
+        first.getBoundingClientRect().width;
+
+      const lastWidth =
+        last.getBoundingClientRect().width;
 
       const left =
-        Math.max(0, (carouselWidth - firstWidth) / 2);
+        Math.max(
+          0,
+          (carouselWidth - firstWidth) / 2
+        );
 
       const right =
-        Math.max(0, (carouselWidth - lastWidth) / 2);
+        Math.max(
+          0,
+          (carouselWidth - lastWidth) / 2
+        );
 
-      carousel.style.paddingLeft = left + "px";
-      carousel.style.paddingRight = right + "px";
+      carousel.style.paddingLeft =
+        left + "px";
+
+      carousel.style.paddingRight =
+        right + "px";
     }
 
 
@@ -379,17 +393,30 @@ document.addEventListener("DOMContentLoaded", function () {
        CONTROLS
     ========================= */
 
-    const controls = document.createElement("div");
-    controls.className = "carousel-controls";
+    const controls =
+      document.createElement("div");
 
-    const prev = document.createElement("button");
-    const next = document.createElement("button");
+    controls.className =
+      "carousel-controls";
+
+    const prev =
+      document.createElement("button");
+
+    const next =
+      document.createElement("button");
 
     prev.type = "button";
     next.type = "button";
 
-    prev.setAttribute("aria-label", "Carte précédente");
-    next.setAttribute("aria-label", "Carte suivante");
+    prev.setAttribute(
+      "aria-label",
+      "Carte précédente"
+    );
+
+    next.setAttribute(
+      "aria-label",
+      "Carte suivante"
+    );
 
     prev.innerHTML =
       '<i class="fa-solid fa-chevron-left"></i>';
@@ -398,6 +425,7 @@ document.addEventListener("DOMContentLoaded", function () {
       '<i class="fa-solid fa-chevron-right"></i>';
 
     controls.append(prev, next);
+
     carousel.after(controls);
 
 
@@ -405,33 +433,43 @@ document.addEventListener("DOMContentLoaded", function () {
        DOTS
     ========================= */
 
-    const dots = document.createElement("div");
-    dots.className = "carousel-dots";
+    const dots =
+      document.createElement("div");
 
-    const dotsList = cards.map(function (card, index) {
+    dots.className =
+      "carousel-dots";
 
-      const dot = document.createElement("button");
+    const dotsList =
+      cards.map(function (card, index) {
 
-      dot.type = "button";
-      dot.setAttribute(
-        "aria-label",
-        "Carte " + (index + 1)
-      );
+        const dot =
+          document.createElement("button");
 
-      dot.addEventListener("click", function () {
-        goTo(index);
+        dot.type = "button";
+
+        dot.setAttribute(
+          "aria-label",
+          "Carte " + (index + 1)
+        );
+
+        dot.addEventListener(
+          "click",
+          function () {
+            goTo(index);
+          }
+        );
+
+        dots.append(dot);
+
+        return dot;
       });
-
-      dots.append(dot);
-
-      return dot;
-    });
 
     controls.after(dots);
 
 
     /* =========================
-       ACTIVE CARD
+       GET ACTIVE CARD
+       Card closest to center
     ========================= */
 
     function getActiveIndex() {
@@ -455,11 +493,16 @@ document.addEventListener("DOMContentLoaded", function () {
           rect.left +
           rect.width / 2;
 
-        const d =
-          Math.abs(cardCenter - center);
+        const currentDistance =
+          Math.abs(
+            cardCenter - center
+          );
 
-        if (d < distance) {
-          distance = d;
+        if (currentDistance < distance) {
+
+          distance =
+            currentDistance;
+
           best = index;
         }
 
@@ -469,9 +512,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+    /* =========================
+       UPDATE ACTIVE
+    ========================= */
+
     function updateActive() {
 
-      const index = getActiveIndex();
+      const index =
+        getActiveIndex();
 
       cards.forEach(function (card, i) {
 
@@ -499,14 +547,21 @@ document.addEventListener("DOMContentLoaded", function () {
        CENTER CARD
     ========================= */
 
-    function centerCard(index, smooth = true) {
+    function centerCard(
+      index,
+      smooth = true
+    ) {
 
       index = Math.max(
         0,
-        Math.min(cards.length - 1, index)
+        Math.min(
+          cards.length - 1,
+          index
+        )
       );
 
-      const card = cards[index];
+      const card =
+        cards[index];
 
       if (!card) return;
 
@@ -525,11 +580,19 @@ document.addEventListener("DOMContentLoaded", function () {
         cardRect.width / 2;
 
       const difference =
-        cardCenter - carouselCenter;
+        cardCenter -
+        carouselCenter;
+
+      if (Math.abs(difference) < 2) {
+        return;
+      }
 
       carousel.scrollBy({
         left: difference,
-        behavior: smooth ? "smooth" : "auto"
+        behavior:
+          smooth
+            ? "smooth"
+            : "auto"
       });
     }
 
@@ -539,7 +602,11 @@ document.addEventListener("DOMContentLoaded", function () {
     ========================= */
 
     function goTo(index) {
-      centerCard(index, true);
+
+      centerCard(
+        index,
+        true
+      );
     }
 
 
@@ -547,30 +614,47 @@ document.addEventListener("DOMContentLoaded", function () {
        PREVIOUS
     ========================= */
 
-    prev.addEventListener("click", function () {
+    prev.addEventListener(
+      "click",
+      function () {
 
-      const current = getActiveIndex();
+        const current =
+          getActiveIndex();
 
-      if (current > 0) {
-        goTo(current - 1);
+        if (current > 0) {
+
+          goTo(
+            current - 1
+          );
+        }
+
       }
-
-    });
+    );
 
 
     /* =========================
        NEXT
     ========================= */
 
-    next.addEventListener("click", function () {
+    next.addEventListener(
+      "click",
+      function () {
 
-      const current = getActiveIndex();
+        const current =
+          getActiveIndex();
 
-      if (current < cards.length - 1) {
-        goTo(current + 1);
+        if (
+          current <
+          cards.length - 1
+        ) {
+
+          goTo(
+            current + 1
+          );
+        }
+
       }
-
-    });
+    );
 
 
     /* =========================
@@ -585,15 +669,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (frame) return;
 
-        frame = requestAnimationFrame(function () {
+        frame =
+          requestAnimationFrame(
+            function () {
 
-          updateActive();
-          frame = null;
+              updateActive();
 
-        });
+              frame = null;
+            }
+          );
 
       },
-      { passive: true }
+      {
+        passive: true
+      }
     );
 
 
@@ -612,11 +701,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
           e.preventDefault();
 
-          carousel.scrollLeft += e.deltaY;
+          carousel.scrollLeft +=
+            e.deltaY;
         }
 
       },
-      { passive: false }
+      {
+        passive: false
+      }
     );
 
 
@@ -635,13 +727,18 @@ document.addEventListener("DOMContentLoaded", function () {
         if (e.button !== 0) return;
 
         dragging = true;
-        startX = e.pageX;
-        startScroll = carousel.scrollLeft;
 
-        carousel.classList.add("is-dragging");
+        startX =
+          e.pageX;
+
+        startScroll =
+          carousel.scrollLeft;
+
+        carousel.classList.add(
+          "is-dragging"
+        );
 
         e.preventDefault();
-
       }
     );
 
@@ -655,7 +752,6 @@ document.addEventListener("DOMContentLoaded", function () {
         carousel.scrollLeft =
           startScroll -
           (e.pageX - startX);
-
       }
     );
 
@@ -668,12 +764,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
         dragging = false;
 
-        carousel.classList.remove("is-dragging");
+        carousel.classList.remove(
+          "is-dragging"
+        );
 
-        const index = getActiveIndex();
+        const index =
+          getActiveIndex();
 
-        centerCard(index, true);
-
+        centerCard(
+          index,
+          true
+        );
       }
     );
 
@@ -682,23 +783,16 @@ document.addEventListener("DOMContentLoaded", function () {
        TOUCH
     ========================= */
 
-    let touchStartX = 0;
-    let touchStartScroll = 0;
-
     carousel.addEventListener(
       "touchstart",
       function (e) {
 
         if (!e.touches.length) return;
 
-        touchStartX =
-          e.touches[0].pageX;
-
-        touchStartScroll =
-          carousel.scrollLeft;
-
       },
-      { passive: true }
+      {
+        passive: true
+      }
     );
 
 
@@ -706,17 +800,25 @@ document.addEventListener("DOMContentLoaded", function () {
       "touchend",
       function () {
 
-        setTimeout(function () {
+        setTimeout(
+          function () {
 
-          const index =
-            getActiveIndex();
+            const index =
+              getActiveIndex();
 
-          centerCard(index, true);
+            centerCard(
+              index,
+              true
+            );
 
-        }, 80);
+          },
+          80
+        );
 
       },
-      { passive: true }
+      {
+        passive: true
+      }
     );
 
 
@@ -730,23 +832,39 @@ document.addEventListener("DOMContentLoaded", function () {
       "resize",
       function () {
 
-        clearTimeout(resizeTimer);
+        clearTimeout(
+          resizeTimer
+        );
 
-        resizeTimer = setTimeout(function () {
+        resizeTimer =
+          setTimeout(
+            function () {
 
-          const current =
-            getActiveIndex();
+              /*
+               * Recalculate the space
+               * needed to center cards.
+               */
+              updateSidePadding();
 
-          updateSidePadding();
+              requestAnimationFrame(
+                function () {
 
-          requestAnimationFrame(function () {
+                  const current =
+                    getActiveIndex();
 
-            centerCard(current, false);
-            updateActive();
+                  centerCard(
+                    current,
+                    false
+                  );
 
-          });
+                  updateActive();
 
-        }, 100);
+                }
+              );
+
+            },
+            100
+          );
 
       }
     );
@@ -754,26 +872,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =========================
        INITIALIZE
+       
+       CARD 2 = CENTER
     ========================= */
 
     function initialize() {
 
+      /*
+       * First calculate the side space
+       * so cards can reach the center.
+       */
       updateSidePadding();
 
-      requestAnimationFrame(function () {
+      requestAnimationFrame(
+        function () {
 
-        /*
-         * Start with first card
-         * exactly in the center.
-         */
+          /*
+           * Card index 1 = Card 2
+           */
+          const initialIndex =
+            Math.min(
+              1,
+              cards.length - 1
+            );
 
-        carousel.scrollLeft = 0;
+          /*
+           * Start with CARD 2
+           * exactly in the center.
+           */
+          centerCard(
+            initialIndex,
+            false
+          );
 
-        updateSidePadding();
-        updateActive();
+          requestAnimationFrame(
+            function () {
 
-      });
+              updateActive();
 
+            }
+          );
+
+        }
+      );
     }
 
 
@@ -792,13 +933,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
       let remaining = 0;
 
-      images.forEach(function (img) {
+      images.forEach(
+        function (img) {
 
-        if (!img.complete) {
-          remaining++;
+          if (!img.complete) {
+            remaining++;
+          }
+
         }
-
-      });
+      );
 
       if (remaining === 0) {
 
@@ -806,33 +949,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
       } else {
 
-        images.forEach(function (img) {
+        images.forEach(
+          function (img) {
 
-          if (img.complete) return;
+            if (img.complete) return;
 
-          function loaded() {
+            function loaded() {
 
-            remaining--;
+              remaining--;
 
-            if (remaining <= 0) {
-              initialize();
+              if (remaining <= 0) {
+                initialize();
+              }
+
             }
 
+            img.addEventListener(
+              "load",
+              loaded,
+              {
+                once: true
+              }
+            );
+
+            img.addEventListener(
+              "error",
+              loaded,
+              {
+                once: true
+              }
+            );
+
           }
-
-          img.addEventListener(
-            "load",
-            loaded,
-            { once: true }
-          );
-
-          img.addEventListener(
-            "error",
-            loaded,
-            { once: true }
-          );
-
-        });
+        );
 
       }
 
