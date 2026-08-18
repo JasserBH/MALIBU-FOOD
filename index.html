@@ -425,7 +425,7 @@
 
         </div>
       </div>
-      
+     
       <!-- WIDE PLATTER BANNER -->
       <div class="platter-banner">
         <img src="img/hero-clean.jpg" alt="Formules plateaux Malibu Food : crevettes, merguez, poulet grillé et escalope">
@@ -577,20 +577,20 @@
       </div>
     </div>
   </section>
-  <section class="delivery-apps">
+   <section class="delivery-apps">
     <div class="wrap delivery-apps-inner">
       <span class="delivery-apps-label">Commandez en un clic sur</span>
       <div class="delivery-apps-buttons">
         <a href="https://glovoapp.com/en/tn/tunis" target="_blank" rel="noopener" class="delivery-app-btn">
-          <img src="img/GLOVO.jpg" alt="Commander sur Glovo">
+          <img src="img/glovo.jpg" alt="Commander sur Glovo">
           <span>Glovo</span>
         </a>
         <a href="https://delivery.yassir.com/fr/restaurants" target="_blank" rel="noopener" class="delivery-app-btn">
-          <img src="img/YASSIR.png" alt="Commander sur Yassir">
+          <img src="img/yassir.png" alt="Commander sur Yassir">
           <span>Yassir</span>
         </a>
         <a href="https://kooldelivery.com/" target="_blank" rel="noopener" class="delivery-app-btn">
-          <img src="img/KOOL.png" alt="Commander sur Kool">
+          <img src="img/kool.png" alt="Commander sur Kool">
           <span>Kool</span>
         </a>
       </div>
@@ -631,7 +631,6 @@
     <p class="copy">&copy; 2026 Malibu Food. Tous droits réservés.</p>
   </footer>
   <script> 
-
   document.addEventListener("DOMContentLoaded", function () {
 
     /* =========================================================
@@ -814,36 +813,21 @@
         const card = cards[index];
         if (!card) return;
 
-        const isMenu =
-          carousel.classList.contains("menu-carousel");
+        /* All carousels: centered behavior */
 
-        if (isMenu) {
+        const carouselRect = carousel.getBoundingClientRect();
+        const cardRect = card.getBoundingClientRect();
 
-          /* Menu: first card is aligned to the LEFT */
+        const carouselCenter =
+          carouselRect.left + carouselRect.width / 2;
 
-          carousel.scrollTo({
-            left: card.offsetLeft,
-            behavior: "smooth"
-          });
+        const cardCenter =
+          cardRect.left + cardRect.width / 2;
 
-        } else {
-
-          /* Other carousels: keep centered behavior */
-
-          const carouselRect = carousel.getBoundingClientRect();
-          const cardRect = card.getBoundingClientRect();
-
-          const carouselCenter =
-            carouselRect.left + carouselRect.width / 2;
-
-          const cardCenter =
-            cardRect.left + cardRect.width / 2;
-
-          carousel.scrollBy({
-            left: cardCenter - carouselCenter,
-            behavior: "smooth"
-          });
-        }
+        carousel.scrollBy({
+          left: cardCenter - carouselCenter,
+          behavior: "smooth"
+        });
       }
 
 
@@ -892,13 +876,30 @@
 
       /* ---------- Mouse wheel ---------- */
 
+      let wheelLock = false;
+
       carousel.addEventListener(
         "wheel",
         function (event) {
 
           if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
+
             event.preventDefault();
-            carousel.scrollLeft += event.deltaY;
+
+            if (wheelLock) return;
+
+            const current = getActiveIndex();
+            const direction = event.deltaY > 0 ? 1 : -1;
+            const target = current + direction;
+
+            if (target < 0 || target > cards.length - 1) return;
+
+            wheelLock = true;
+            goTo(target);
+
+            setTimeout(function () {
+              wheelLock = false;
+            }, 450);
           }
         },
         { passive: false }
@@ -958,6 +959,31 @@
           goTo(current);
         }
       });
+      /* =========================================================
+   MENU CARDS → NOS RESTAURANTS
+========================================================= */
+
+  /* =========================================================
+   MENU CARDS → NOS RESTAURANTS
+========================================================= */
+
+    document.querySelectorAll(".ticket-card").forEach(function (card) {
+
+      card.style.cursor = "pointer";
+
+      card.addEventListener("click", function () {
+        const restaurants = document.querySelector("#restaurants");
+
+        if (restaurants) {
+          restaurants.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }
+      });
+
+    });
+
 
 
       /* =======================================================
@@ -1051,6 +1077,9 @@
     });
 
   });
+
+ 
+
 
   </script>
 </body>
