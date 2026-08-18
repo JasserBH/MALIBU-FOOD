@@ -574,87 +574,6 @@
   .platter-copy h3{font-size:1.7rem; margin-bottom:.8rem; max-width:16ch;}
   .platter-copy p{color:var(--muted); font-size:.94rem; max-width:42ch; margin-bottom:1.4rem;}
 
-  /* ============ restaurants / boarding passes ============ */
-  .restaurants{background:var(--ink-3); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-
-  .pass-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(360px, 1fr));
-    gap:1.8rem;
-  }
-
-  .pass{
-    display:grid;
-    grid-template-columns:110px 1fr;
-    background:var(--paper);
-    color:var(--ink);
-    border-radius:16px;
-    overflow:hidden;
-    box-shadow:0 14px 34px rgba(0,0,0,.28);
-  }
-
-  .pass-stub{
-    background:var(--red);
-    color:#fff;
-    padding:1.3rem 1rem;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    position:relative;
-    font-family:'Space Grotesk',sans-serif;
-  }
-  .pass-stub .code{font-size:1.9rem; font-weight:700; line-height:1;}
-  .pass-stub .label{font-size:.6rem; letter-spacing:.14em; text-transform:uppercase; opacity:.85; margin-top:.3rem;}
-  .pass-stub .plane{font-size:1.1rem; opacity:.9;}
-
-  .pass-stub::after{
-    content:"";
-    position:absolute;
-    top:0; bottom:0; right:-1px;
-    width:0;
-    border-right:2px dashed rgba(255,255,255,.55);
-  }
-
-  .pass-main{padding:1.3rem 1.4rem 1.5rem;}
-
-  .pass-main .map-container{
-    width:calc(100% + 2.8rem);
-    margin:-1.3rem -1.4rem 1rem;
-    height:150px;
-    background:#222;
-  }
-  .pass-main .map-container iframe{width:100%; height:100%; border:0;}
-
-  .pass-main h3{font-size:1.15rem; margin-bottom:.25rem;}
-  .pass-address{font-size:.82rem; color:var(--muted-2); margin-bottom:.7rem;}
-
-  .pass-phone{
-    display:block;
-    font-family:'Space Grotesk',sans-serif;
-    font-weight:700;
-    font-size:1rem;
-    text-decoration:none;
-    color:var(--ink);
-    margin-bottom:.9rem;
-  }
-  .pass-phone:hover{color:var(--red);}
-
-  .pass-buttons{display:flex; gap:.6rem;}
-  .pass-buttons a{
-    flex:1;
-    text-align:center;
-    padding:.6rem .8rem;
-    border-radius:999px;
-    text-decoration:none;
-    font-size:.82rem;
-    font-weight:700;
-    transition:.25s;
-  }
-  .pass-btn-primary{background:var(--red); color:#fff;}
-  .pass-btn-primary:hover{background:var(--red-dark);}
-  .pass-btn-secondary{background:transparent; color:var(--ink); border:1px solid #cfc2ab;}
-  .pass-btn-secondary:hover{border-color:var(--red); color:var(--red);}
-
   /* ============ footer / receipt ============ */
   footer{padding:6rem 1.5rem 2.5rem; text-align:center;}
 
@@ -716,30 +635,7 @@
   footer p.copy{color:var(--muted-2); font-size:.8rem;}
 
   /* ============ responsive ============ */
-  @media (max-width: 860px){
-    .about-grid{grid-template-columns:1fr;}
-    .platter-banner{grid-template-columns:1fr;}
-    .platter-banner img{min-height:200px;}
-  }
-
-  @media (max-width: 640px){
-    header{flex-direction:column; align-items:flex-start; gap:.8rem;}
-    nav{width:100%; justify-content:flex-start; flex-wrap:wrap; gap:1rem;}
-    .hero{min-height:80vh; align-items:flex-end; padding-bottom:3rem;}
-    section{padding:4rem 0;}
-    .section-head{flex-direction:column; align-items:flex-start;}
-    .pass{grid-template-columns:1fr;}
-    .pass-stub{
-      flex-direction:row;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .pass-stub::after{
-      border-right:none;
-      border-bottom:2px dashed rgba(255,255,255,.55);
-      left:0; right:0; bottom:-1px; top:auto; height:0;
-    }
-  }
+ 
 
   @media (max-width: 640px){
     .hero-chip{
@@ -1265,7 +1161,12 @@
 }
 .social-icons a:hover{color:#fff;transform:translateY(-3px);}
 @media (max-width:640px){
-  .horizontal-carousel{gap:1rem;padding-left:10vw;padding-right:10vw;}
+  .horizontal-carousel{
+    gap:1rem;
+    padding-left:10vw;
+    padding-right:10vw;
+    touch-action:pan-x;
+  }
   .horizontal-carousel > *{flex-basis:80vw;}
   .carousel-controls{display:none;}
 }
@@ -1329,16 +1230,17 @@
   to{opacity:1;transform:translateY(0)}
 }
 
-/* Menu cards start from the LEFT, not centered */
+/* First card centered */
 .menu-carousel{
-  padding-left:0 !important;
-  padding-right:1rem !important;
-  scroll-padding-left:0;
+  padding-left:calc((100vw - min(360px, 78vw)) / 2) !important;
+  padding-right:calc((100vw - min(360px, 78vw)) / 2) !important;
+  scroll-padding-left:calc((100vw - min(360px, 78vw)) / 2) !important;
+  scroll-padding-right:calc((100vw - min(360px, 78vw)) / 2) !important;
   scroll-snap-type:x mandatory;
 }
 
 .menu-carousel > *{
-  scroll-snap-align:start !important;
+  scroll-snap-align:center !important;
 }
 
 .menu-carousel > *.is-active{
@@ -1362,379 +1264,40 @@
   }
 
   .menu-carousel{
-    padding-left:0 !important;
-    padding-right:.8rem !important;
+    padding-left:10vw !important;
+    padding-right:10vw !important;
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    scroll-snap-type:x proximity !important;
+    scroll-behavior:auto !important;
+    -webkit-overflow-scrolling:touch !important;
+    touch-action:auto !important;
   }
 
   .menu-carousel > *{
-    flex-basis:80vw;
+    flex:0 0 80vw !important;
+    width:80vw !important;
+    scroll-snap-align:center !important;
+    scroll-snap-stop:normal !important;
   }
 }
+
+
 
 /* =========================================================
-   FINAL CAROUSEL FIX
-========================================================= */
-
-.horizontal-carousel{
-  cursor:grab !important;
-  user-select:none;
-  -webkit-user-select:none;
-  touch-action:pan-y;
-}
-
-.horizontal-carousel.is-dragging{
-  cursor:grabbing !important;
-  scroll-behavior:auto !important;
-}
-
-/* Arrows always visible */
-.carousel-controls{
-  display:flex !important;
-  justify-content:center;
-  align-items:center;
-  gap:.7rem;
-  margin-top:.5rem;
-}
-
-.carousel-controls button{
-  display:flex !important;
-  align-items:center;
-  justify-content:center;
-
-  width:62px;
-  height:62px;
-
-  border:1px solid var(--line);
-  border-radius:50%;
-
-  background:var(--ink-2);
-  color:var(--cream);
-
-  font-size:24px;
-  line-height:1;
-
-  cursor:pointer;
-
-  transition:
-    background .25s ease,
-    border-color .25s ease,
-    transform .25s ease;
-}
-
-.carousel-controls button:hover{
-  background:var(--red);
-  border-color:var(--red);
-  transform:translateY(-2px);
-}
-
-/* Dots always visible */
-.carousel-dots{
-  display:flex !important;
-  justify-content:center;
-  align-items:center;
-  gap:.45rem;
-  margin-top:.7rem;
-}
-
-.carousel-dots button{
-  display:block !important;
-
-  width:8px;
-  height:8px;
-
-  padding:0;
-  border:0;
-  border-radius:50%;
-
-  background:var(--muted-2);
-
-  cursor:pointer;
-  transition:.25s ease;
-}
-
-.carousel-dots button.active{
-  width:24px;
-  border-radius:999px;
-  background:var(--gold);
-}
-
-/* Menu: first card starts at the left */
-.menu-carousel{
-  padding-left:0 !important;
-  padding-right:1rem !important;
-  scroll-padding-left:0;
-}
-
-.menu-carousel > *{
-  scroll-snap-align:start !important;
-}
-
-.menu-panel[hidden]{
-  display:none !important;
-}
-
-@media(max-width:640px){
-
-  .carousel-controls{
-    display:flex !important;
-  }
-
-  .carousel-controls button{
-    width:52px;
-    height:52px;
-    font-size:20px;
-  }
-
-  .carousel-dots{
-    display:flex !important;
-  }
-
+   FINAL MOBILE TOUCH FIX
+   ========================================================= */
+@media (max-width:640px){
+  .horizontal-carousel,
   .menu-carousel{
-    padding-left:0 !important;
-    padding-right:.8rem !important;
+    touch-action:auto !important;
+    scroll-snap-type:x proximity !important;
+    scroll-behavior:auto !important;
+    -webkit-overflow-scrolling:touch !important;
   }
 
+  .horizontal-carousel > *,
   .menu-carousel > *{
-    flex-basis:80vw;
+    scroll-snap-stop:normal !important;
   }
-}
-
-/* =========================================================
-   FINAL — CARDS RESTAURANTS PLUS COURTES
-   ========================================================= */
-
-.pass-stub {
-    height: 85px !important;
-    padding: 12px 25px !important;
-}
-
-.pass-stub > div:first-child::before {
-    font-size: 32px !important;
-    line-height: 1 !important;
-}
-
-.pass-stub .label {
-    margin-top: 5px !important;
-    font-size: 10px !important;
-    letter-spacing: 2px !important;
-}
-
-.pass-stub .plane {
-    font-size: 24px !important;
-    margin-top: 8px !important;
-}
-
-.pass-main {
-    padding: 0 25px 15px !important;
-}
-
-.pass-main .map-container {
-    height: 110px !important;
-    margin: 0 -25px 14px !important;
-}
-
-.pass-main h3 {
-    font-size: 22px !important;
-    margin-bottom: 3px !important;
-}
-
-.pass-address {
-    font-size: 13px !important;
-    line-height: 1.3 !important;
-    margin-bottom: 9px !important;
-}
-
-.pass-phone {
-    font-size: 17px !important;
-    margin-bottom: 12px !important;
-}
-
-.pass-buttons {
-    gap: 9px !important;
-}
-
-.pass-buttons a {
-    height: 42px !important;
-    font-size: 13px !important;
-}
-
-/* Mobile */
-@media (max-width: 650px) {
-    .pass-stub {
-        height: 85px !important;
-        padding: 14px 20px !important;
-    }
-
-    .pass-stub > div:first-child::before {
-        font-size: 29px !important;
-    }
-
-    .pass-stub .label {
-        font-size: 10px !important;
-        margin-top: 4px !important;
-    }
-
-    .pass-stub .plane {
-        font-size: 23px !important;
-        margin-top: 7px !important;
-    }
-
-    .pass-main {
-        padding: 0 20px 14px !important;
-    }
-
-    .pass-main .map-container {
-        width: calc(100% + 40px) !important;
-        height: 120px !important;
-        margin-left: -20px !important;
-        margin-right: -20px !important;
-        margin-bottom: 13px !important;
-    }
-
-    .pass-main h3 {
-        font-size: 21px !important;
-    }
-
-    .pass-address {
-        font-size: 13px !important;
-        margin-bottom: 8px !important;
-    }
-
-    .pass-phone {
-        font-size: 17px !important;
-        margin-bottom: 11px !important;
-    }
-
-    .pass-buttons a {
-        height: 42px !important;
-        font-size: 13px !important;
-    }
-}
-
-
-/* =========================================================
-   FINAL — PREMIÈRE CARD CENTRÉE
-   NOS RESTAURANTS + NOTRE CARTE
-   ========================================================= */
-
-.horizontal-carousel {
-    padding-left: calc((100vw - min(360px, 78vw)) / 2) !important;
-    padding-right: calc((100vw - min(360px, 78vw)) / 2) !important;
-    scroll-padding-left: calc((100vw - min(360px, 78vw)) / 2) !important;
-    scroll-padding-right: calc((100vw - min(360px, 78vw)) / 2) !important;
-}
-
-.horizontal-carousel > * {
-    scroll-snap-align: center !important;
-}
-
-/* NOTRE CARTE */
-.menu-carousel {
-    padding-left: calc((100vw - min(360px, 80vw)) / 2) !important;
-    padding-right: calc((100vw - min(360px, 80vw)) / 2) !important;
-    scroll-padding-left: calc((100vw - min(360px, 80vw)) / 2) !important;
-    scroll-padding-right: calc((100vw - min(360px, 80vw)) / 2) !important;
-}
-
-.menu-carousel > * {
-    scroll-snap-align: center !important;
-}
-
-/* MOBILE */
-@media (max-width: 640px) {
-    .horizontal-carousel {
-        padding-left: 10vw !important;
-        padding-right: 10vw !important;
-        scroll-padding-left: 10vw !important;
-        scroll-padding-right: 10vw !important;
-    }
-
-    .horizontal-carousel > * {
-        flex-basis: 80vw !important;
-        scroll-snap-align: center !important;
-    }
-
-    .menu-carousel {
-        padding-left: 10vw !important;
-        padding-right: 10vw !important;
-        scroll-padding-left: 10vw !important;
-        scroll-padding-right: 10vw !important;
-    }
-
-    .menu-carousel > * {
-        flex-basis: 80vw !important;
-        scroll-snap-align: center !important;
-    }
-}
-
-
-/* =========================================================
-   FINAL — MOBILE CAROUSEL / SWIPE FIX
-   NOS RESTAURANTS + NOTRE CARTE
-   ========================================================= */
-
-@media (max-width: 640px) {
-
-    .horizontal-carousel,
-    .menu-carousel {
-        display: flex !important;
-        flex-wrap: nowrap !important;
-        overflow-x: auto !important;
-        overflow-y: hidden !important;
-
-        -webkit-overflow-scrolling: touch !important;
-        overscroll-behavior-x: contain !important;
-
-        scroll-behavior: smooth !important;
-        scroll-snap-type: x mandatory !important;
-
-        touch-action: pan-x !important;
-
-        scrollbar-width: none !important;
-        -ms-overflow-style: none !important;
-
-        cursor: default !important;
-        user-select: none !important;
-        -webkit-user-select: none !important;
-    }
-
-    .horizontal-carousel::-webkit-scrollbar,
-    .menu-carousel::-webkit-scrollbar {
-        display: none !important;
-    }
-
-    .horizontal-carousel > *,
-    .menu-carousel > * {
-        flex: 0 0 80vw !important;
-        width: 80vw !important;
-        max-width: 80vw !important;
-
-        scroll-snap-align: center !important;
-        scroll-snap-stop: always !important;
-
-        /* Active/inactive cards stay normal on touch */
-        opacity: 1 !important;
-        filter: none !important;
-        transform: none !important;
-    }
-
-    /* Space before/after cards so first and last can center */
-    .horizontal-carousel::before,
-    .menu-carousel::before,
-    .horizontal-carousel::after,
-    .menu-carousel::after {
-        content: "";
-        flex: 0 0 10vw !important;
-        width: 10vw !important;
-    }
-
-    /* Keep carousel buttons usable */
-    .carousel-controls {
-        display: flex !important;
-    }
-
-    /* Prevent accidental horizontal clipping */
-    body {
-        overflow-x: hidden !important;
-    }
 }
