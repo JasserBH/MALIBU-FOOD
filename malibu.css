@@ -96,6 +96,68 @@
     padding:0 1.5rem;
   }
 
+  /* ============ delivery apps ============ */
+  .delivery-apps{
+    background:var(--ink-2);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:1.4rem 0;
+  }
+
+  .delivery-apps-inner{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:1.2rem 1.8rem;
+  }
+
+  .delivery-apps-label{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:.75rem;
+    font-weight:600;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--muted-2);
+  }
+
+  .delivery-apps-buttons{
+    display:flex;
+    align-items:center;
+    gap:.9rem;
+    flex-wrap:wrap;
+  }
+
+  .delivery-app-btn{
+    display:flex;
+    align-items:center;
+    gap:.55rem;
+    background:var(--ink-3);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:.5rem 1.1rem .5rem .5rem;
+    text-decoration:none;
+    transition:transform .25s ease, border-color .25s ease;
+  }
+
+  .delivery-app-btn:hover{
+    transform:translateY(-3px);
+    border-color:var(--gold);
+  }
+
+  .delivery-app-btn img{
+    width:32px; height:32px;
+    border-radius:50%;
+    object-fit:cover;
+  }
+
+  .delivery-app-btn span{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:.85rem;
+    font-weight:600;
+    color:var(--cream);
+  }
+
   /* ============ perforation divider ============ */
   .perf{
     position:relative;
@@ -466,6 +528,14 @@
   .ticket-perf::after{right:-1.4rem;}
 
   .ticket-content{padding:1.4rem 1.4rem 1.6rem;}
+
+  .ticket-price{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:.95rem;
+    color:var(--gold);
+    margin-top:.7rem;
+  }
 
   .ticket-tagline{
     display:flex;
@@ -1198,4 +1268,233 @@
   .horizontal-carousel{gap:1rem;padding-left:10vw;padding-right:10vw;}
   .horizontal-carousel > *{flex-basis:80vw;}
   .carousel-controls{display:none;}
+}
+/* =========================================================
+   MENU CATEGORIES — SANDWICH / PLATS / PIZZA
+   ========================================================= */
+.menu-categories{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:.7rem;
+  margin:0 auto 2rem;
+  flex-wrap:wrap;
+}
+
+.menu-category{
+  appearance:none;
+  -webkit-appearance:none;
+  border:1px solid var(--line);
+  background:var(--ink-2);
+  color:var(--cream);
+  min-width:150px;
+  padding:.85rem 1.4rem;
+  border-radius:999px;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:.82rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  cursor:pointer;
+  transition:background .25s ease,color .25s ease,border-color .25s ease,transform .25s ease;
+}
+
+.menu-category:hover{
+  border-color:var(--red);
+  transform:translateY(-2px);
+}
+
+.menu-category.active{
+  background:var(--red);
+  color:#fff;
+  border-color:var(--red);
+  box-shadow:0 8px 22px rgba(210,21,33,.25);
+}
+
+.menu-category:focus-visible{
+  outline:2px solid var(--gold);
+  outline-offset:3px;
+}
+
+.menu-panel{
+  display:block;
+  animation:menuPanelIn .28s ease;
+}
+
+.menu-panel[hidden]{
+  display:none !important;
+}
+
+@keyframes menuPanelIn{
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* Menu cards start from the LEFT, not centered */
+.menu-carousel{
+  padding-left:0 !important;
+  padding-right:1rem !important;
+  scroll-padding-left:0;
+  scroll-snap-type:x mandatory;
+}
+
+.menu-carousel > *{
+  scroll-snap-align:start !important;
+}
+
+.menu-carousel > *.is-active{
+  opacity:1;
+  transform:scale(1);
+  filter:none;
+}
+
+@media (max-width:640px){
+  .menu-categories{
+    width:100%;
+    gap:.55rem;
+    margin-bottom:1.5rem;
+  }
+
+  .menu-category{
+    flex:1 1 0;
+    min-width:0;
+    padding:.78rem .65rem;
+    font-size:.74rem;
+  }
+
+  .menu-carousel{
+    padding-left:0 !important;
+    padding-right:.8rem !important;
+  }
+
+  .menu-carousel > *{
+    flex-basis:80vw;
+  }
+}
+
+/* =========================================================
+   FINAL CAROUSEL FIX
+========================================================= */
+
+.horizontal-carousel{
+  cursor:grab !important;
+  user-select:none;
+  -webkit-user-select:none;
+  touch-action:pan-y;
+}
+
+.horizontal-carousel.is-dragging{
+  cursor:grabbing !important;
+  scroll-behavior:auto !important;
+}
+
+/* Arrows always visible */
+.carousel-controls{
+  display:flex !important;
+  justify-content:center;
+  align-items:center;
+  gap:.7rem;
+  margin-top:.5rem;
+}
+
+.carousel-controls button{
+  display:flex !important;
+  align-items:center;
+  justify-content:center;
+
+  width:62px;
+  height:62px;
+
+  border:1px solid var(--line);
+  border-radius:50%;
+
+  background:var(--ink-2);
+  color:var(--cream);
+
+  font-size:24px;
+  line-height:1;
+
+  cursor:pointer;
+
+  transition:
+    background .25s ease,
+    border-color .25s ease,
+    transform .25s ease;
+}
+
+.carousel-controls button:hover{
+  background:var(--red);
+  border-color:var(--red);
+  transform:translateY(-2px);
+}
+
+/* Dots always visible */
+.carousel-dots{
+  display:flex !important;
+  justify-content:center;
+  align-items:center;
+  gap:.45rem;
+  margin-top:.7rem;
+}
+
+.carousel-dots button{
+  display:block !important;
+
+  width:8px;
+  height:8px;
+
+  padding:0;
+  border:0;
+  border-radius:50%;
+
+  background:var(--muted-2);
+
+  cursor:pointer;
+  transition:.25s ease;
+}
+
+.carousel-dots button.active{
+  width:24px;
+  border-radius:999px;
+  background:var(--gold);
+}
+
+/* Menu: first card starts at the left */
+.menu-carousel{
+  padding-left:0 !important;
+  padding-right:1rem !important;
+  scroll-padding-left:0;
+}
+
+.menu-carousel > *{
+  scroll-snap-align:start !important;
+}
+
+.menu-panel[hidden]{
+  display:none !important;
+}
+
+@media(max-width:640px){
+
+  .carousel-controls{
+    display:flex !important;
+  }
+
+  .carousel-controls button{
+    width:52px;
+    height:52px;
+    font-size:20px;
+  }
+
+  .carousel-dots{
+    display:flex !important;
+  }
+
+  .menu-carousel{
+    padding-left:0 !important;
+    padding-right:.8rem !important;
+  }
+
+  .menu-carousel > *{
+    flex-basis:80vw;
+  }
 }
