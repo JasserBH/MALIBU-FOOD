@@ -1666,3 +1666,75 @@
         scroll-snap-align: center !important;
     }
 }
+
+
+/* =========================================================
+   FINAL — MOBILE CAROUSEL / SWIPE FIX
+   NOS RESTAURANTS + NOTRE CARTE
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+    .horizontal-carousel,
+    .menu-carousel {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+
+        -webkit-overflow-scrolling: touch !important;
+        overscroll-behavior-x: contain !important;
+
+        scroll-behavior: smooth !important;
+        scroll-snap-type: x mandatory !important;
+
+        touch-action: pan-x !important;
+
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+
+        cursor: default !important;
+        user-select: none !important;
+        -webkit-user-select: none !important;
+    }
+
+    .horizontal-carousel::-webkit-scrollbar,
+    .menu-carousel::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .horizontal-carousel > *,
+    .menu-carousel > * {
+        flex: 0 0 80vw !important;
+        width: 80vw !important;
+        max-width: 80vw !important;
+
+        scroll-snap-align: center !important;
+        scroll-snap-stop: always !important;
+
+        /* Active/inactive cards stay normal on touch */
+        opacity: 1 !important;
+        filter: none !important;
+        transform: none !important;
+    }
+
+    /* Space before/after cards so first and last can center */
+    .horizontal-carousel::before,
+    .menu-carousel::before,
+    .horizontal-carousel::after,
+    .menu-carousel::after {
+        content: "";
+        flex: 0 0 10vw !important;
+        width: 10vw !important;
+    }
+
+    /* Keep carousel buttons usable */
+    .carousel-controls {
+        display: flex !important;
+    }
+
+    /* Prevent accidental horizontal clipping */
+    body {
+        overflow-x: hidden !important;
+    }
+}
