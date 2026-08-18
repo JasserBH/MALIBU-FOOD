@@ -48,7 +48,7 @@
     
     </div>
   </section>
-
+  
   <!-- ================= ABOUT ================= -->
   <section class="about">
     <div class="wrap about-grid">
@@ -77,86 +77,378 @@
         <span class="script">nos best-sellers</span>
       </div>
 
-      <div class="horizontal-carousel menu-carousel" data-carousel="menu">
-
-        <!-- CARD 1 -->
-        <div class="ticket-card">
-          <div class="ticket-photo">
-            <img src="img/sandwish chevrettes.jpg" alt="Sandwich chevrettes croustillantes Malibu Food">
-            <span class="ticket-badge">Spécialité Mer</span>
-          </div>
-          <div class="ticket-perf"></div>
-          <div class="ticket-content">
-            <div class="ticket-tagline"><span>N° 01</span><span>Sandwich</span></div>
-            <h3>Sandwich Chevrettes</h3>
-            <p>Chevrettes panées croustillantes dans un pain artisanal, garnies de salade fraîche et de sauces maison au choix.</p>
-          </div>
-        </div>
-
-        <!-- CARD 2 -->
-        <div class="ticket-card">
-          <div class="ticket-photo">
-            <img src="img/tempura-clean.jpg" alt="Plat tempura crevettes Malibu Food">
-            <span class="ticket-badge">Assiette</span>
-          </div>
-          <div class="ticket-perf"></div>
-          <div class="ticket-content">
-            <div class="ticket-tagline"><span>N° 02</span><span>Assiette</span></div>
-            <h3>Plat Tempura Crevettes</h3>
-            <p>Crevettes tempura dorées, servies avec riz parfumé, frites croustillantes, salade composée et quartier de citron.</p>
-          </div>
-        </div>
-
-        <!-- CARD 3 -->
-        <div class="ticket-card">
-          <div class="ticket-photo">
-            <img src="img/chawarma-clean.jpg" alt="Sandwich chawarma Malibu Food">
-            <span class="ticket-badge">Incontournable</span>
-          </div>
-          <div class="ticket-perf"></div>
-          <div class="ticket-content">
-            <div class="ticket-tagline"><span>N° 03</span><span>Sandwich</span></div>
-            <h3>Sandwich Chawarma</h3>
-            <p>Viande grillée à la broche, pain traditionnel tout juste sorti du four, frites croustillantes et sauces maison.</p>
-          </div>
-        </div>
-
-        <!-- CARD 4 -->
-        <div class="ticket-card">
-          <div class="ticket-photo">
-            <img src="img/crispy-plate.jpg" alt="Plat crispy chicken Malibu Food">
-            <span class="ticket-badge">Poulet</span>
-          </div>
-          <div class="ticket-perf"></div>
-          <div class="ticket-content">
-            <div class="ticket-tagline"><span>N° 04</span><span>Sandwich &amp; Plat</span></div>
-            <h3>Crispy Chicken</h3>
-            <p>Morceaux de poulet panés ultra-croustillants, accompagnés de frites, riz parfumé et sauces au choix.</p>
-          </div>
-        </div>
-
-        <!-- CARD 5 -->
-        <div class="ticket-card">
-          <div class="ticket-photo">
-            <img src="img/pizza.jpg" alt="Pizza 4 saisons Malibu Food">
-            <span class="ticket-badge">Pizza</span>
-          </div>
-          <div class="ticket-perf"></div>
-          <div class="ticket-content">
-            <div class="ticket-tagline"><span>N° 05</span><span>Pizza</span></div>
-            <h3>Pizza 4 Saisons</h3>
-            <p>Base tomate, mozzarella généreuse, champignons, olives noires et piments verts, cuite au four.</p>
-          </div>
-        </div>
-
-      </div>
+      <!-- MENU CATEGORIES -->
+      <div class="menu-categories" role="tablist" aria-label="Catégories du menu">
+        <button class="menu-category active" type="button" data-category="sandwich" role="tab" aria-selected="true">SANDWICH</button>
+        <button class="menu-category" type="button" data-category="plats" role="tab" aria-selected="false">PLATS</button>
+        <button class="menu-category" type="button" data-category="pizza" role="tab" aria-selected="false">PIZZA</button>
       </div>
 
+      <!-- ================= SANDWICH ================= -->
+      <div class="menu-panel active" id="menu-sandwich" data-panel="sandwich" role="tabpanel">
+        <div class="horizontal-carousel menu-carousel" data-carousel="menu-sandwich">
+
+          <div class="ticket-card">
+            <div class="ticket-photo">
+              <img src="img/sandwish chevrettes.jpg" alt="Sandwich chevrettes croustillantes Malibu Food">
+              <span class="ticket-badge">Spécialité Mer</span>
+            </div>
+            <div class="ticket-perf"></div>
+            <div class="ticket-content">
+              <div class="ticket-tagline"><span>N° 01</span><span>Sandwich</span></div>
+              <h3>Sandwich Chevrettes</h3>
+              <p>Chevrettes panées croustillantes dans un pain artisanal, garnies de salade fraîche et de sauces maison au choix.</p>
+              <div class="ticket-price">13,800 DT</div>
+            </div>
+          </div>
+
+          <div class="ticket-card">
+            <div class="ticket-photo">
+              <img src="img/chawarma-clean.jpg" alt="Sandwich chawarma Malibu Food">
+              <span class="ticket-badge">Incontournable</span>
+            </div>
+            <div class="ticket-perf"></div>
+            <div class="ticket-content">
+              <div class="ticket-tagline"><span>N° 02</span><span>Sandwich</span></div>
+              <h3>Sandwich Chawarma</h3>
+              <p>Viande grillée à la broche, pain traditionnel tout juste sorti du four, frites croustillantes et sauces maison.</p>
+              <div class="ticket-price">12,600 DT</div>
+            </div>
+            
+          </div>
+           <div class="ticket-card">
+            <div class="ticket-photo">
+              <img src="img/crispi.png" alt="Sandwich crispy Malibu Food">
+              <span class="ticket-badge">Incontournable</span>
+            </div>
+            <div class="ticket-perf"></div>
+            <div class="ticket-content">
+              <div class="ticket-tagline"><span>N° 03</span><span>Sandwich</span></div>
+              <h3>Sandwich Crispy </h3>
+              <p>Poulet pané ultra-croustillant, pain moelleux, salade fraîche et sauces maison au choix.</p>
+              <div class="ticket-price">12,600 DT</div>
+            </div>
+          </div>
+
+          <div class="ticket-card">
+            <div class="ticket-photo">
+              <img src="img/jambon.png" alt="Sandwich jambon Malibu Food">
+              <span class="ticket-badge">Classique</span>
+            </div>
+            <div class="ticket-perf"></div>
+            <div class="ticket-content">
+              <div class="ticket-tagline"><span>N° 04</span><span>Sandwich</span></div>
+              <h3>Sandwich Jambon</h3>
+              <p>Jambon fondant dans un pain moelleux, garni de salade fraîche et de sauces maison au choix.</p>
+              <div class="ticket-price">10,800 DT</div>
+            </div>
+          </div>
+
+          <div class="ticket-card">
+            <div class="ticket-photo">
+              <img src="img/thon.png" alt="Sandwich thon Malibu Food">
+              <span class="ticket-badge">Classique</span>
+            </div>
+            <div class="ticket-perf"></div>
+            <div class="ticket-content">
+              <div class="ticket-tagline"><span>N° 05</span><span>Sandwich</span></div>
+              <h3>Sandwich Thon</h3>
+              <p>Thon généreux, œuf et légumes frais dans un pain traditionnel, accompagné de nos sauces maison.</p>
+              <div class="ticket-price">10,800 DT</div>
+            </div>
+          </div>
+
+          <div class="ticket-card">
+            <div class="ticket-photo">
+              <img src="img/nuguest.png" alt="Sandwich nuggets Malibu Food">
+              <span class="ticket-badge">Poulet</span>
+            </div>
+            <div class="ticket-perf"></div>
+            <div class="ticket-content">
+              <div class="ticket-tagline"><span>N° 06</span><span>Sandwich</span></div>
+              <h3>Sandwich Nuggets</h3>
+              <p>Nuggets de poulet croustillants, pain artisanal, salade fraîche et sauces maison au choix.</p>
+              <div class="ticket-price">12,600 DT</div>
+            </div>
+          </div>
+
+          <div class="ticket-card">
+            <div class="ticket-photo">
+              <img src="img/courdon bleu.png" alt="Sandwich cordon bleu Malibu Food">
+              <span class="ticket-badge">Incontournable</span>
+            </div>
+            <div class="ticket-perf"></div>
+            <div class="ticket-content">
+              <div class="ticket-tagline"><span>N° 07</span><span>Sandwich</span></div>
+              <h3>Sandwich Cordon Bleu</h3>
+              <p>Cordon bleu doré et fondant, pain moelleux, salade fraîche et sauces maison au choix.</p>
+              <div class="ticket-price">12,600 DT</div>
+            </div>
+          </div>
+
+          <div class="ticket-card">
+            <div class="ticket-photo">
+              <img src="img/escalope panne.png" alt="Sandwich escalope panée Malibu Food">
+              <span class="ticket-badge">Poulet</span>
+            </div>
+            <div class="ticket-perf"></div>
+            <div class="ticket-content">
+              <div class="ticket-tagline"><span>N° 08</span><span>Sandwich</span></div>
+              <h3>Sandwich Escalope Panée</h3>
+              <p>Escalope de poulet panée et croustillante, pain traditionnel, salade fraîche et sauces maison.</p>
+              <div class="ticket-price">12,600 DT</div>
+            </div>
+          </div>
+
+          <div class="ticket-card">
+            <div class="ticket-photo">
+              <img src="img/escalope grille.png" alt="Sandwich escalope grillée Malibu Food">
+              <span class="ticket-badge">Poulet</span>
+            </div>
+            <div class="ticket-perf"></div>
+            <div class="ticket-content">
+              <div class="ticket-tagline"><span>N° 09</span><span>Sandwich</span></div>
+              <h3>Sandwich Escalope Grillée</h3>
+              <p>Escalope de poulet grillée, tomates fraîches, salade et sauces maison au choix.</p>
+              <div class="ticket-price">12,600 DT</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ================= PLATS ================= -->
+      <div class="menu-panel" id="menu-plats" data-panel="plats" role="tabpanel" hidden>
+        <div class="horizontal-carousel menu-carousel" data-carousel="menu-plats">
+
+          <div class="ticket-card">
+            <div class="ticket-photo">
+              <img src="img/plat cheverette.png" alt="Plat crevettes Malibu Food">
+              <span class="ticket-badge">Spécialité Mer</span>
+            </div>
+            <div class="ticket-perf"></div>
+            <div class="ticket-content">
+              <div class="ticket-tagline"><span>N° 01</span><span>Plat</span></div>
+              <h3>Plat Crevettes</h3>
+              <p>Crevettes panées et dorées, servies avec riz parfumé, frites croustillantes, salade fraîche et quartier de citron.</p>
+            </div>
+          </div>
+
+          <div class="ticket-card">
+            <div class="ticket-photo">
+              <img src="img/palt escalope panne.png" alt="Plat escalope panée Malibu Food">
+              <span class="ticket-badge">Poulet</span>
+            </div>
+            <div class="ticket-perf"></div>
+            <div class="ticket-content">
+              <div class="ticket-tagline"><span>N° 02</span><span>Plat</span></div>
+              <h3>Plat Escalope Panée</h3>
+              <p>Escalope de poulet panée et croustillante, riz parfumé, frites, salade fraîche et sauces maison.</p>
+              <div class="ticket-price">23,900 DT</div>
+            </div>
+          </div>
+
+          <div class="ticket-card">
+            <div class="ticket-photo">
+              <img src="img/plat crispy.png" alt="Plat crispy Malibu Food">
+              <span class="ticket-badge">Poulet</span>
+            </div>
+            <div class="ticket-perf"></div>
+            <div class="ticket-content">
+              <div class="ticket-tagline"><span>N° 03</span><span>Plat</span></div>
+              <h3>Plat Crispy</h3>
+              <p>Aiguillettes de poulet crispy, riz parfumé, frites croustillantes, salade fraîche et sauces maison.</p>
+              <div class="ticket-price">23,900 DT</div>
+            </div>
+          </div>
+
+          <div class="ticket-card">
+            <div class="ticket-photo">
+              <img src="img/plat courdon blue.png" alt="Plat cordon bleu Malibu Food">
+              <span class="ticket-badge">Incontournable</span>
+            </div>
+            <div class="ticket-perf"></div>
+            <div class="ticket-content">
+              <div class="ticket-tagline"><span>N° 04</span><span>Plat</span></div>
+              <h3>Plat Cordon Bleu</h3>
+              <p>Cordon bleu doré et fondant, riz parfumé, frites, salade fraîche et sauces maison au choix.</p>
+              <div class="ticket-price">24,900 DT</div>
+            </div>
+          </div>
+
+          <div class="ticket-card">
+            <div class="ticket-photo">
+              <img src="img/plat escalope grille.png" alt="Plat escalope grillée Malibu Food">
+              <span class="ticket-badge">Grillade</span>
+            </div>
+            <div class="ticket-perf"></div>
+            <div class="ticket-content">
+              <div class="ticket-tagline"><span>N° 05</span><span>Plat</span></div>
+              <h3>Plat Escalope Grillée</h3>
+              <p>Escalope de poulet grillée, riz parfumé, frites, salade fraîche et sauces maison au choix.</p>
+              <div class="ticket-price">24,900 DT</div>
+            </div>
+          </div>
+
+          <div class="ticket-card">
+            <div class="ticket-photo">
+              <img src="img/plat viande hachee.png" alt="Plat viande hachée Malibu Food">
+              <span class="ticket-badge">Grillade</span>
+            </div>
+            <div class="ticket-perf"></div>
+            <div class="ticket-content">
+              <div class="ticket-tagline"><span>N° 06</span><span>Plat</span></div>
+              <h3>Plat Viande Hachée</h3>
+              <p>Steak de viande hachée grillé, riz parfumé, frites, salade fraîche et sauces maison au choix.</p>
+              <div class="ticket-price">26,400 DT</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ================= PIZZA ================= -->
+      <div class="menu-panel" id="menu-pizza" data-panel="pizza" role="tabpanel" hidden>
+        <div class="horizontal-carousel menu-carousel" data-carousel="menu-pizza">
+
+          <div class="ticket-card">
+            <div class="ticket-photo">
+              <img src="img/4 fromage.png" alt="Pizza 4 fromages Malibu Food">
+              <span class="ticket-badge">Fromage</span>
+            </div>
+            <div class="ticket-perf"></div>
+            <div class="ticket-content">
+              <div class="ticket-tagline"><span>N° 01</span><span>Pizza</span></div>
+              <h3>Pizza Quatre Fromages</h3>
+              <p>Sauce blanche, mozzarella, gruyère, cheddar, roquefort, olives et câpres.</p>
+              <div class="ticket-price">21,000 DT</div>
+            </div>
+          </div>
+
+          <div class="ticket-card">
+            <div class="ticket-photo">
+              <img src="img/fruit de mer.png" alt="Pizza fruits de mer Malibu Food">
+              <span class="ticket-badge">Spécialité Mer</span>
+            </div>
+            <div class="ticket-perf"></div>
+            <div class="ticket-content">
+              <div class="ticket-tagline"><span>N° 02</span><span>Pizza</span></div>
+              <h3>Pizza Fruit de Mer</h3>
+              <p>Sauce tomate, mozzarella, chevrettes, calamar, moules, seiches, olives et câpres.</p>
+              <div class="ticket-price">21,000 DT</div>
+            </div>
+          </div>
+
+          <div class="ticket-card">
+            <div class="ticket-photo">
+              <img src="img/pizza escalope.png" alt="Pizza escalope Malibu Food">
+              <span class="ticket-badge">Poulet</span>
+            </div>
+            <div class="ticket-perf"></div>
+            <div class="ticket-content">
+              <div class="ticket-tagline"><span>N° 03</span><span>Pizza</span></div>
+              <h3>Pizza Escalope</h3>
+              <p>Sauce tomate, mozzarella, escalope, olives et câpres.</p>
+              <div class="ticket-price">13,000 DT</div>
+            </div>
+          </div>
+
+          <div class="ticket-card">
+            <div class="ticket-photo">
+              <img src="img/4sesion.png" alt="Pizza 4 saisons Malibu Food">
+              <span class="ticket-badge">Pizza</span>
+            </div>
+            <div class="ticket-perf"></div>
+            <div class="ticket-content">
+              <div class="ticket-tagline"><span>N° 04</span><span>Pizza</span></div>
+              <h3>Pizza Quatre Saisons</h3>
+              <p>Sauce tomate, mozzarella, tomates, oignons, champignons, jambon, thon, olives et câpres.</p>
+              <div class="ticket-price">13,000 DT</div>
+            </div>
+          </div>
+
+          <div class="ticket-card">
+            <div class="ticket-photo">
+              <img src="img/p neptune.png" alt="Pizza Neptune Malibu Food">
+              <span class="ticket-badge">Spécialité Mer</span>
+            </div>
+            <div class="ticket-perf"></div>
+            <div class="ticket-content">
+              <div class="ticket-tagline"><span>N° 05</span><span>Pizza</span></div>
+              <h3>Pizza Neptune</h3>
+              <p>Sauce tomate, mozzarella, olives, câpres et thon.</p>
+              <div class="ticket-price">11,000 DT</div>
+            </div>
+          </div>
+
+          <div class="ticket-card">
+            <div class="ticket-photo">
+              <img src="img/vegetiren.png" alt="Pizza végétarienne Malibu Food">
+              <span class="ticket-badge">Végétarienne</span>
+            </div>
+            <div class="ticket-perf"></div>
+            <div class="ticket-content">
+              <div class="ticket-tagline"><span>N° 06</span><span>Pizza</span></div>
+              <h3>Pizza Végétarienne</h3>
+              <p>Sauce tomate, mozzarella, champignons, tomate cerise, poivron, oignon, olives et câpres.</p>
+              <div class="ticket-price">11,000 DT</div>
+            </div>
+          </div>
+
+          <div class="ticket-card">
+            <div class="ticket-photo">
+              <img src="img/pepironne.png" alt="Pizza pepperoni Malibu Food">
+              <span class="ticket-badge">Incontournable</span>
+            </div>
+            <div class="ticket-perf"></div>
+            <div class="ticket-content">
+              <div class="ticket-tagline"><span>N° 07</span><span>Pizza</span></div>
+              <h3>Pizza Pepperoni</h3>
+              <p>Sauce tomate, mozzarella, pepperoni, olives et câpres.</p>
+              <div class="ticket-price">11,000 DT</div>
+            </div>
+          </div>
+
+          <div class="ticket-card">
+            <div class="ticket-photo">
+              <img src="img/marguerita.png" alt="Pizza Margherita Malibu Food">
+              <span class="ticket-badge">Classique</span>
+            </div>
+            <div class="ticket-perf"></div>
+            <div class="ticket-content">
+              <div class="ticket-tagline"><span>N° 08</span><span>Pizza</span></div>
+              <h3>Pizza Margherita</h3>
+              <p>Sauce tomate, mozzarella, olives et câpres.</p>
+              <div class="ticket-price">10,000 DT</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <section class="delivery-apps">
+    <div class="wrap delivery-apps-inner">
+      <span class="delivery-apps-label">Commandez en un clic sur</span>
+      <div class="delivery-apps-buttons">
+        <a href="https://glovoapp.com/en/tn/tunis" target="_blank" rel="noopener" class="delivery-app-btn">
+          <img src="img/glovo.jpg" alt="Commander sur Glovo">
+          <span>Glovo</span>
+        </a>
+        <a href="https://delivery.yassir.com/fr/restaurants" target="_blank" rel="noopener" class="delivery-app-btn">
+          <img src="img/yassir.png" alt="Commander sur Yassir">
+          <span>Yassir</span>
+        </a>
+        <a href="https://kooldelivery.com/" target="_blank" rel="noopener" class="delivery-app-btn">
+          <img src="img/kool.png" alt="Commander sur Kool">
+          <span>Kool</span>
+        </a>
+      </div>
+    </div>
+  </section>
       <!-- WIDE PLATTER BANNER -->
       <div class="platter-banner">
         <img src="img/hero-clean.jpg" alt="Formules plateaux Malibu Food : crevettes, merguez, poulet grillé et escalope">
         <div class="platter-copy">
-          <span class="eyebrow">N° 06 · Formules</span>
+          <span class="eyebrow">Formules</span>
           <h3>Nos plateaux à partager</h3>
           <p>Crevettes panées, merguez grillées, poulet rôti ou escalope panée — tous servis avec riz, frites, salade fraîche et sauces maison. Idéal pour deux ou pour toute la table.</p>
           <a href="#restaurants" class="btn btn-primary" style="align-self:flex-start;">Commander maintenant</a>
@@ -337,512 +629,428 @@
     
     <p class="copy">&copy; 2026 Malibu Food. Tous droits réservés.</p>
   </footer>
+  <script> 
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function () {
 
-  document.querySelectorAll(".horizontal-carousel").forEach(function (carousel) {
+    /* =========================================================
+      MENU TABS — SANDWICH / PLATS / PIZZA
+    ========================================================= */
 
-    const cards = Array.from(carousel.children);
-    if (!cards.length) return;
+    const menuButtons = document.querySelectorAll(".menu-category");
+    const menuPanels = document.querySelectorAll(".menu-panel");
 
-    /* =========================
-       SIDE PADDING
-       Allows first/last card
-       to reach the center
-    ========================= */
+    function showMenu(category) {
 
-    function updateSidePadding() {
+      menuButtons.forEach(function (button) {
+        const active = button.dataset.category === category;
 
-      const first = cards[0];
-      const last = cards[cards.length - 1];
-
-      if (!first || !last) return;
-
-      const carouselWidth = carousel.clientWidth;
-
-      const firstWidth = first.getBoundingClientRect().width;
-      const lastWidth = last.getBoundingClientRect().width;
-
-      const left =
-        Math.max(0, (carouselWidth - firstWidth) / 2);
-
-      const right =
-        Math.max(0, (carouselWidth - lastWidth) / 2);
-
-      carousel.style.paddingLeft = left + "px";
-      carousel.style.paddingRight = right + "px";
-    }
-
-
-    /* =========================
-       CONTROLS
-    ========================= */
-
-    const controls = document.createElement("div");
-    controls.className = "carousel-controls";
-
-    const prev = document.createElement("button");
-    const next = document.createElement("button");
-
-    prev.type = "button";
-    next.type = "button";
-
-    prev.setAttribute("aria-label", "Carte précédente");
-    next.setAttribute("aria-label", "Carte suivante");
-
-    prev.innerHTML =
-      '<i class="fa-solid fa-chevron-left"></i>';
-
-    next.innerHTML =
-      '<i class="fa-solid fa-chevron-right"></i>';
-
-    controls.append(prev, next);
-    carousel.after(controls);
-
-
-    /* =========================
-       DOTS
-    ========================= */
-
-    const dots = document.createElement("div");
-    dots.className = "carousel-dots";
-
-    const dotsList = cards.map(function (card, index) {
-
-      const dot = document.createElement("button");
-
-      dot.type = "button";
-      dot.setAttribute(
-        "aria-label",
-        "Carte " + (index + 1)
-      );
-
-      dot.addEventListener("click", function () {
-        goTo(index);
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-selected", active ? "true" : "false");
       });
 
-      dots.append(dot);
+      menuPanels.forEach(function (panel) {
+        const active = panel.dataset.panel === category;
 
-      return dot;
-    });
+        panel.hidden = !active;
+        panel.classList.toggle("active", active);
 
-    controls.after(dots);
+        if (active) {
+          const carousel = panel.querySelector(".horizontal-carousel");
 
+          if (carousel) {
+            carousel.scrollLeft = 0;
 
-    /* =========================
-       ACTIVE CARD
-    ========================= */
-
-    function getActiveIndex() {
-
-      const carouselRect =
-        carousel.getBoundingClientRect();
-
-      const center =
-        carouselRect.left +
-        carouselRect.width / 2;
-
-      let best = 0;
-      let distance = Infinity;
-
-      cards.forEach(function (card, index) {
-
-        const rect =
-          card.getBoundingClientRect();
-
-        const cardCenter =
-          rect.left +
-          rect.width / 2;
-
-        const d =
-          Math.abs(cardCenter - center);
-
-        if (d < distance) {
-          distance = d;
-          best = index;
+            requestAnimationFrame(function () {
+              updateCarouselActive(carousel);
+            });
+          }
         }
-
-      });
-
-      return best;
-    }
-
-
-    function updateActive() {
-
-      const index = getActiveIndex();
-
-      cards.forEach(function (card, i) {
-
-        card.classList.toggle(
-          "is-active",
-          i === index
-        );
-
-      });
-
-      dotsList.forEach(function (dot, i) {
-
-        dot.classList.toggle(
-          "active",
-          i === index
-        );
-
-      });
-
-      return index;
-    }
-
-
-    /* =========================
-       CENTER CARD
-    ========================= */
-
-    function centerCard(index, smooth = true) {
-
-      index = Math.max(
-        0,
-        Math.min(cards.length - 1, index)
-      );
-
-      const card = cards[index];
-
-      if (!card) return;
-
-      const carouselRect =
-        carousel.getBoundingClientRect();
-
-      const cardRect =
-        card.getBoundingClientRect();
-
-      const carouselCenter =
-        carouselRect.left +
-        carouselRect.width / 2;
-
-      const cardCenter =
-        cardRect.left +
-        cardRect.width / 2;
-
-      const difference =
-        cardCenter - carouselCenter;
-
-      carousel.scrollBy({
-        left: difference,
-        behavior: smooth ? "smooth" : "auto"
       });
     }
 
-
-    /* =========================
-       GO TO CARD
-    ========================= */
-
-    function goTo(index) {
-      centerCard(index, true);
-    }
-
-
-    /* =========================
-       PREVIOUS
-    ========================= */
-
-    prev.addEventListener("click", function () {
-
-      const current = getActiveIndex();
-
-      if (current > 0) {
-        goTo(current - 1);
-      }
-
+    menuButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        showMenu(button.dataset.category);
+      });
     });
 
 
-    /* =========================
-       NEXT
-    ========================= */
+    /* =========================================================
+      CAROUSELS
+    ========================================================= */
 
-    next.addEventListener("click", function () {
+    document.querySelectorAll(".horizontal-carousel").forEach(function (carousel) {
 
-      const current = getActiveIndex();
+      const cards = Array.from(carousel.children);
+      if (!cards.length) return;
 
-      if (current < cards.length - 1) {
-        goTo(current + 1);
-      }
+      /* ---------- Controls ---------- */
 
-    });
+      const controls = document.createElement("div");
+      controls.className = "carousel-controls";
+
+      const prev = document.createElement("button");
+      const next = document.createElement("button");
+
+      prev.type = "button";
+      next.type = "button";
+
+      prev.innerHTML = "←";
+      next.innerHTML = "→";
+
+      prev.setAttribute("aria-label", "Précédent");
+      next.setAttribute("aria-label", "Suivant");
+
+      controls.appendChild(prev);
+      controls.appendChild(next);
+
+      carousel.parentNode.insertBefore(controls, carousel.nextSibling);
 
 
-    /* =========================
-       SCROLL
-    ========================= */
+      /* ---------- Dots ---------- */
 
-    let frame = null;
+      const dots = document.createElement("div");
+      dots.className = "carousel-dots";
 
-    carousel.addEventListener(
-      "scroll",
-      function () {
+      const dotsList = [];
 
-        if (frame) return;
+      cards.forEach(function (_, index) {
 
-        frame = requestAnimationFrame(function () {
+        const dot = document.createElement("button");
 
-          updateActive();
-          frame = null;
+        dot.type = "button";
+        dot.setAttribute(
+          "aria-label",
+          "Afficher la carte " + (index + 1)
+        );
 
+        dot.addEventListener("click", function () {
+          goTo(index);
         });
 
-      },
-      { passive: true }
-    );
+        dots.appendChild(dot);
+        dotsList.push(dot);
+      });
+
+      controls.parentNode.insertBefore(dots, controls.nextSibling);
 
 
-    /* =========================
-       MOUSE WHEEL
-    ========================= */
+      /* ---------- Active card ---------- */
 
-    carousel.addEventListener(
-      "wheel",
-      function (e) {
+      function getActiveIndex() {
 
-        if (
-          Math.abs(e.deltaY) >
-          Math.abs(e.deltaX)
-        ) {
+        const rect = carousel.getBoundingClientRect();
+        const center = rect.left + rect.width / 2;
 
-          e.preventDefault();
+        let best = 0;
+        let distance = Infinity;
 
-          carousel.scrollLeft += e.deltaY;
+        cards.forEach(function (card, index) {
+
+          const cardRect = card.getBoundingClientRect();
+          const cardCenter = cardRect.left + cardRect.width / 2;
+          const currentDistance = Math.abs(cardCenter - center);
+
+          if (currentDistance < distance) {
+            distance = currentDistance;
+            best = index;
+          }
+        });
+
+        return best;
+      }
+
+
+      window.updateCarouselActive = function (targetCarousel) {
+
+        const c = targetCarousel || carousel;
+        const targetCards = Array.from(c.children);
+
+        if (!targetCards.length) return 0;
+
+        const rect = c.getBoundingClientRect();
+        const center = rect.left + rect.width / 2;
+
+        let best = 0;
+        let distance = Infinity;
+
+        targetCards.forEach(function (card, index) {
+
+          const cardRect = card.getBoundingClientRect();
+          const cardCenter = cardRect.left + cardRect.width / 2;
+          const currentDistance = Math.abs(cardCenter - center);
+
+          if (currentDistance < distance) {
+            distance = currentDistance;
+            best = index;
+          }
+        });
+
+        targetCards.forEach(function (card, index) {
+          card.classList.toggle("is-active", index === best);
+        });
+
+        if (c === carousel) {
+          dotsList.forEach(function (dot, index) {
+            dot.classList.toggle("active", index === best);
+          });
         }
 
-      },
-      { passive: false }
-    );
+        return best;
+      };
 
 
-    /* =========================
-       MOUSE DRAG
-    ========================= */
+      /* ---------- Go to card ---------- */
 
-    let dragging = false;
-    let startX = 0;
-    let startScroll = 0;
+      function goTo(index) {
 
-    carousel.addEventListener(
-      "mousedown",
-      function (e) {
+        index = Math.max(
+          0,
+          Math.min(cards.length - 1, index)
+        );
 
-        if (e.button !== 0) return;
+        const card = cards[index];
+        if (!card) return;
 
-        dragging = true;
-        startX = e.pageX;
-        startScroll = carousel.scrollLeft;
+        const isMenu =
+          carousel.classList.contains("menu-carousel");
+
+        if (isMenu) {
+
+          /* Menu: first card is aligned to the LEFT */
+
+          carousel.scrollTo({
+            left: card.offsetLeft,
+            behavior: "smooth"
+          });
+
+        } else {
+
+          /* Other carousels: keep centered behavior */
+
+          const carouselRect = carousel.getBoundingClientRect();
+          const cardRect = card.getBoundingClientRect();
+
+          const carouselCenter =
+            carouselRect.left + carouselRect.width / 2;
+
+          const cardCenter =
+            cardRect.left + cardRect.width / 2;
+
+          carousel.scrollBy({
+            left: cardCenter - carouselCenter,
+            behavior: "smooth"
+          });
+        }
+      }
+
+
+      /* ---------- Previous ---------- */
+
+      prev.addEventListener("click", function () {
+
+        const current = getActiveIndex();
+
+        if (current > 0) {
+          goTo(current - 1);
+        }
+      });
+
+
+      /* ---------- Next ---------- */
+
+      next.addEventListener("click", function () {
+
+        const current = getActiveIndex();
+
+        if (current < cards.length - 1) {
+          goTo(current + 1);
+        }
+      });
+
+
+      /* ---------- Scroll ---------- */
+
+      let scrollFrame = null;
+
+      carousel.addEventListener(
+        "scroll",
+        function () {
+
+          if (scrollFrame) return;
+
+          scrollFrame = requestAnimationFrame(function () {
+            updateCarouselActive(carousel);
+            scrollFrame = null;
+          });
+        },
+        { passive: true }
+      );
+
+
+      /* ---------- Mouse wheel ---------- */
+
+      carousel.addEventListener(
+        "wheel",
+        function (event) {
+
+          if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
+            event.preventDefault();
+            carousel.scrollLeft += event.deltaY;
+          }
+        },
+        { passive: false }
+      );
+
+
+      /* =======================================================
+        MOUSE DRAG
+      ======================================================= */
+
+      let isDragging = false;
+      let startX = 0;
+      let startScrollLeft = 0;
+      let moved = false;
+
+      carousel.addEventListener("mousedown", function (event) {
+
+        if (event.button !== 0) return;
+
+        isDragging = true;
+        moved = false;
+
+        startX = event.pageX;
+        startScrollLeft = carousel.scrollLeft;
 
         carousel.classList.add("is-dragging");
 
-        e.preventDefault();
-
-      }
-    );
+        event.preventDefault();
+      });
 
 
-    window.addEventListener(
-      "mousemove",
-      function (e) {
+      window.addEventListener("mousemove", function (event) {
 
-        if (!dragging) return;
+        if (!isDragging) return;
+
+        const distance = event.pageX - startX;
+
+        if (Math.abs(distance) > 3) {
+          moved = true;
+        }
 
         carousel.scrollLeft =
-          startScroll -
-          (e.pageX - startX);
-
-      }
-    );
+          startScrollLeft - distance;
+      });
 
 
-    window.addEventListener(
-      "mouseup",
-      function () {
+      window.addEventListener("mouseup", function () {
 
-        if (!dragging) return;
+        if (!isDragging) return;
 
-        dragging = false;
+        isDragging = false;
 
         carousel.classList.remove("is-dragging");
 
-        const index = getActiveIndex();
+        if (moved) {
+          const current = getActiveIndex();
+          goTo(current);
+        }
+      });
 
-        centerCard(index, true);
 
+      /* =======================================================
+        MOBILE TOUCH
+      ======================================================= */
+
+      let touchStartX = 0;
+      let touchStartScroll = 0;
+
+      carousel.addEventListener(
+        "touchstart",
+        function (event) {
+
+          if (!event.touches.length) return;
+
+          touchStartX = event.touches[0].pageX;
+          touchStartScroll = carousel.scrollLeft;
+        },
+        { passive: true }
+      );
+
+
+      carousel.addEventListener(
+        "touchmove",
+        function (event) {
+
+          if (!event.touches.length) return;
+
+          const distance =
+            event.touches[0].pageX - touchStartX;
+
+          carousel.scrollLeft =
+            touchStartScroll - distance;
+        },
+        { passive: true }
+      );
+
+
+      carousel.addEventListener(
+        "touchend",
+        function () {
+
+          setTimeout(function () {
+            goTo(getActiveIndex());
+          }, 80);
+        },
+        { passive: true }
+      );
+
+
+      /* ---------- Initial state ---------- */
+
+      if (carousel.classList.contains("menu-carousel")) {
+        carousel.scrollLeft = 0;
       }
-    );
+
+      requestAnimationFrame(function () {
+        updateCarouselActive(carousel);
+      });
+
+    });
 
 
-    /* =========================
-       TOUCH
-    ========================= */
-
-    let touchStartX = 0;
-    let touchStartScroll = 0;
-
-    carousel.addEventListener(
-      "touchstart",
-      function (e) {
-
-        if (!e.touches.length) return;
-
-        touchStartX =
-          e.touches[0].pageX;
-
-        touchStartScroll =
-          carousel.scrollLeft;
-
-      },
-      { passive: true }
-    );
-
-
-    carousel.addEventListener(
-      "touchend",
-      function () {
-
-        setTimeout(function () {
-
-          const index =
-            getActiveIndex();
-
-          centerCard(index, true);
-
-        }, 80);
-
-      },
-      { passive: true }
-    );
-
-
-    /* =========================
-       RESIZE
-    ========================= */
+    /* =========================================================
+      RESIZE
+    ========================================================= */
 
     let resizeTimer;
 
-    window.addEventListener(
-      "resize",
-      function () {
+    window.addEventListener("resize", function () {
 
-        clearTimeout(resizeTimer);
+      clearTimeout(resizeTimer);
 
-        resizeTimer = setTimeout(function () {
+      resizeTimer = setTimeout(function () {
 
-          const current =
-            getActiveIndex();
+        document
+          .querySelectorAll(".horizontal-carousel")
+          .forEach(function (carousel) {
 
-          updateSidePadding();
-
-          requestAnimationFrame(function () {
-
-            centerCard(current, false);
-            updateActive();
+            if (
+              carousel.classList.contains("menu-carousel")
+            ) {
+              updateCarouselActive(carousel);
+            } else {
+              updateCarouselActive(carousel);
+            }
 
           });
 
-        }, 100);
-
-      }
-    );
-
-
-    /* =========================
-       INITIALIZE
-    ========================= */
-
-    function initialize() {
-
-      updateSidePadding();
-
-      requestAnimationFrame(function () {
-
-        /*
-         * Start with first card
-         * exactly in the center.
-         */
-
-        carousel.scrollLeft = 0;
-
-        updateSidePadding();
-        updateActive();
-
-      });
-
-    }
-
-
-    /* =========================
-       WAIT FOR IMAGES
-    ========================= */
-
-    const images =
-      carousel.querySelectorAll("img");
-
-    if (!images.length) {
-
-      initialize();
-
-    } else {
-
-      let remaining = 0;
-
-      images.forEach(function (img) {
-
-        if (!img.complete) {
-          remaining++;
-        }
-
-      });
-
-      if (remaining === 0) {
-
-        initialize();
-
-      } else {
-
-        images.forEach(function (img) {
-
-          if (img.complete) return;
-
-          function loaded() {
-
-            remaining--;
-
-            if (remaining <= 0) {
-              initialize();
-            }
-
-          }
-
-          img.addEventListener(
-            "load",
-            loaded,
-            { once: true }
-          );
-
-          img.addEventListener(
-            "error",
-            loaded,
-            { once: true }
-          );
-
-        });
-
-      }
-
-    }
+      }, 120);
+    });
 
   });
 
-});
-</script>
-
-
+  </script>
 </body>
 </html>
